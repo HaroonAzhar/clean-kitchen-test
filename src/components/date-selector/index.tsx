@@ -38,13 +38,13 @@ export default function DateSelector() {
         <input
           type="number" 
           value={state.month}
-          onChange={(e) => setState({...state, day: parseInt(e.target.value) }) }
+          onChange={(e) => setState({...state, month: parseInt(e.target.value) }) }
         //   setState({...state, loading: true});
         />
         <input
           type="number" 
           value={state.year}
-          onChange={(e) => setState({...state, day: parseInt(e.target.value) }) }
+          onChange={(e) => setState({...state, year: parseInt(e.target.value) }) }
         //   setState({...state, loading: true});
         />
       </label> 
