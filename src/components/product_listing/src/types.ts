@@ -19,7 +19,8 @@ export interface ProductListingState {
 
      selectedDate?:Date,
      selectedTime?: string,
-     availableTimeSlot?: string[]
+     availableTimeSlot?: string[],
+     orders?: Order[]
      
 
 

@@ -6,7 +6,7 @@ import { DateSelectorProps } from './src/types';
 
 // 
 
-export default function DateSelector(prop:DateSelectorProps) {
+export default function DateSelector({onDateChange}:{onDateChange:(date:Date)=>void}) {
 
     const d = new Date();
      const month= d.getMonth() +1;
@@ -15,11 +15,29 @@ export default function DateSelector(prop:DateSelectorProps) {
 	
 
     const [state, setState] = useState<IDate>({day:day,month:month,year:year })
+    // const [state, setState] = useState<IDate>({day:day,month:month,year:year })
+    const handleDayChange = (value:number) =>{
+       setState({...state, day: value})
+       onDateChange(new Date(`${state.year}-${state.month}-${state.day}`))
+      //  console.log("state sett dayr", state)
+    }
+    const handleMonthChange = (value:number) =>{
+      setState({...state, month: value})
+      onDateChange(new Date(`${state.year}-${state.month}-${state.day}`))
+      // console.log("state sett month", state)
+   }
+   const handleYearChange = (value:number) =>{
+    setState({...state, year: value})
+    
+    onDateChange(new Date(`${state.year}-${state.month}-${state.day}`))
+    // console.log("state sett year", state)
+ }
 
     useEffect(() => {
-        
+      onDateChange(new Date(`${state.year}-${state.month}-${state.day}`)) 
 
-    }, []);
+
+    }, [state.day,state.month,state.year]);
 
     useEffect(() => {
        
@@ -31,19 +49,19 @@ export default function DateSelector(prop:DateSelectorProps) {
         <input
           type="number" 
           value={state.day}
-          onChange={(e) => setState({...state, day: parseInt(e.target.value) }) }
+          onChange={(e) => handleDayChange(parseInt(e.target.value))}
         //   setState({...state, loading: true});
         />
         <input
           type="number" 
           value={state.month}
-          onChange={(e) => setState({...state, month: parseInt(e.target.value) }) }
+          onChange={(e) => handleMonthChange(parseInt(e.target.value))}
         //   setState({...state, loading: true});
         />
         <input
           type="number" 
           value={state.year}
-          onChange={(e) => setState({...state, year: parseInt(e.target.value) }) }
+          onChange={(e) => handleYearChange(parseInt(e.target.value))}
         //   setState({...state, loading: true});
         />
       </label> 

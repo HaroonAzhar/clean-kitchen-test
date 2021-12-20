@@ -7,8 +7,8 @@ import {CalculateAvailableDates} from "./src/helpers/delivery_helpers"
 import { ProductListingState } from './src/types';
 
 export default function ProductListng() {
-    const [selectedDate, setSelectedDate] = useState(Date())
-    // const [state, setState] = useState<ProductListingState>({ })
+    // const [selectedDate, setSelectedDate] = useState(Date())
+    const [state, setState] = useState<ProductListingState>({ })
   
     const orders = GetAllOrders() 
 
@@ -38,8 +38,8 @@ export default function ProductListng() {
 
             <img src={"https://picsum.photos/seed/phone/500/500"}></img>
 
-            <DateSelector onDateChange={setSelectedDate}  />
-
+            <DateSelector onDateChange={(e)=>setState({...setState, selectedDate:e })}  />
+            <h1>{`${state.selectedDate}`}</h1>
             <TimeSelector/>
 
            
