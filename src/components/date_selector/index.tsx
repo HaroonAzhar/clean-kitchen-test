@@ -1,14 +1,12 @@
 import React, {useEffect, useState} from 'react';
 // import styles from './styles.module.css';
+import { IDate } from '../../utils/types';
+import { DateSelectorProps } from './src/types';
 
 
-interface Date {
-    day: number,
-    month: number,
-    year: number
-}
+// 
 
-export default function DateSelector() {
+export default function DateSelector(prop:DateSelectorProps) {
 
     const d = new Date();
      const month= d.getMonth() +1;
@@ -16,9 +14,10 @@ export default function DateSelector() {
     const year =  d.getFullYear();
 	
 
-    const [state, setState] = useState<Date>({day:day,month:month,year:year })
+    const [state, setState] = useState<IDate>({day:day,month:month,year:year })
 
     useEffect(() => {
+        
 
     }, []);
 
@@ -28,7 +27,7 @@ export default function DateSelector() {
 
     return (
         <div  data-test-id='' className='date-selector-container' >
-           <label>Enter ddelivery date:
+           <label>Enter delivery date:
         <input
           type="number" 
           value={state.day}

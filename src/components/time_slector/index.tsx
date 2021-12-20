@@ -2,18 +2,9 @@ import React, {useEffect, useState} from 'react';
 // import styles from './styles.module.css';
 
 
-interface Date {
-    day: number,
-    month: number,
-    year: number
-}
 
-interface Order {
-    date: string,
-    time: string,
-    OrderID: string,
-    customerId: string
-}
+
+
 
 
 export default function TimeSelector() {
@@ -24,7 +15,7 @@ export default function TimeSelector() {
     const year =  d.getFullYear();
 	
 
-    const [state, setState] = useState<Date>({day:day,month:month,year:year })
+    // const [state, setState] = useState<Date>({day:day,month:month,year:year })
 
     const SelectedTime = (value:string)=>{
         console.log(value)
@@ -40,6 +31,7 @@ export default function TimeSelector() {
 
     return (
         <div  data-test-id='' className='date-selector-container' >
+             <label>Select a delivery Time:
        <select onChange={e=>SelectedTime(e.target.value) } 
  >
     <option value="Orange">Orange</option>
@@ -47,7 +39,7 @@ export default function TimeSelector() {
     <option value="Cherry">Cherry</option>
   </select>
   
-    
+    </label>
            
         </div>
     );
