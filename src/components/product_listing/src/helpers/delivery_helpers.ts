@@ -6,7 +6,7 @@ function compareDateWithISOStringToBeEqual(date:Date, isoString:string): boolean
     console.log('its a date2', isoString)
     
 
-    const rES= (typeof date.toISOString().substring(0,10))
+    const rES= date.toISOString().substring(0,10)
     console.log('its a date3', rES === isoString)
 
     return rES === isoString
@@ -34,12 +34,13 @@ function calculateAvailableDates(orders:Order[], selectedDate:Date): string[] {
     orders.forEach((order)=>{
         // console.log(" the order ccount", order.time);
         // console.log(" the order ccount chec", orderCountPerTime[order.time]);
-           if (compareDateWithISOStringToBeEqual(selectedDate,order.date )) return
+           if (!compareDateWithISOStringToBeEqual(selectedDate,order.date )) return
+           console.log(" the order ccount oo", orderCountPerTime);
+           console.log(" the order ccount oo.00", order.time);
+           console.log(" the order ccount 1", orderCountPerTime[order.time]);
           
-        if (orderCountPerTime[order.time]){
-            const current= orderCountPerTime[order.time]
-            orderCountPerTime[order.time] = current + 1
-        } 
+        (orderCountPerTime[order.time])?  orderCountPerTime[order.time] += 1 :orderCountPerTime[order.time] =  1;
+        
         
         console.log(" the order ccount 2", orderCountPerTime[order.time]);
         
@@ -52,7 +53,7 @@ function calculateAvailableDates(orders:Order[], selectedDate:Date): string[] {
         console.log("checks1",timeSlot )
          console.log("checks",orderCountPerTime[timeSlot] )
         //  console.log("checks",orderCountPerTime[timeSlot] <= deliveryBoyCapacity )
-         if( orderCountPerTime[timeSlot]< deliveryBoyCapacity){
+         if( !orderCountPerTime[timeSlot] || orderCountPerTime[timeSlot]< deliveryBoyCapacity){
              availableTimesSlots.push(timeSlot)
             
          } 
