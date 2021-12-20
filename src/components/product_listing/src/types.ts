@@ -1,7 +1,7 @@
 export interface Order {
     date: string,
     time: string,
-    OrderID: string,
+    orderId: string,
     customerId: string
 }
 // export interface Time {
@@ -17,9 +17,9 @@ export interface TimeSlotCountMap {
 }
 export interface ProductListingState {
 
-     selectedDate?:Date,
+     selectedDate:Date,
      selectedTime?: string,
-     availableTimeSlot?: string[],
+     availableTimeSlot: string[],
      orders?: Order[]
      
 

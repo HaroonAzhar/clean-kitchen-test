@@ -1,23 +1,69 @@
 import { Order, TimeSlotCountMap } from './../types';
 import {DeliveryTimeSlots} from '../../../../utils/constants'
 
-function CalculateAvailableDates(orders:Order[], selectedDate:Date): string[] {
+function compareDateWithISOStringToBeEqual(date:Date, isoString:string): boolean {
+    console.log('its a date1',  date.toISOString().substring(0,10))
+    console.log('its a date2', isoString)
+    
+
+    const rES= (typeof date.toISOString().substring(0,10))
+    console.log('its a date3', rES === isoString)
+
+    return rES === isoString
+
+}
+
+function calculateAvailableDates(orders:Order[], selectedDate:Date): string[] {
   let availableTimesSlots:  string[];
-   let orderCountPerTime: TimeSlotCountMap; 
+   let orderCountPerTime:  TimeSlotCountMap; 
+    // orderCountPerTime = {
+    //     '10:30': 0,
+    //     '12:30': 0,
+    //     '18:30': 0,
+    // }
+    orderCountPerTime = {}
+
+    console.log(" the order ccount----- Iniitial", orderCountPerTime);
+//    orderCountPerTime=[]
    availableTimesSlots = [];
-   const DeliveryBoyCapacity = selectedDate.getDay()=== 0? 4:2;
-    DeliveryTimeSlots.forEach((timeSlot)=>{
-        orderCountPerTime[timeSlot] += 1 ;
+   const deliveryBoyCapacity = selectedDate.getDay()=== 0? 4:2;
+//    console.log("capaitty fr todayy", deliveryBoyCapacity)
+// console.log(" the order ccount-----", orderCountPerTime);
+// console.log(" the order ccount----- ordeer", orders);
+
+    orders.forEach((order)=>{
+        // console.log(" the order ccount", order.time);
+        // console.log(" the order ccount chec", orderCountPerTime[order.time]);
+           if (compareDateWithISOStringToBeEqual(selectedDate,order.date )) return
+          
+        if (orderCountPerTime[order.time]){
+            const current= orderCountPerTime[order.time]
+            orderCountPerTime[order.time] = current + 1
+        } 
+        
+        console.log(" the order ccount 2", orderCountPerTime[order.time]);
+        
+    
     })
+    console.log(" the order ccount-----22", orderCountPerTime);
 
      DeliveryTimeSlots.forEach((timeSlot)=>{
-       if(orderCountPerTime[timeSlot] < DeliveryBoyCapacity) availableTimesSlots.push(timeSlot) ;
+        console.log("checks0",orderCountPerTime )
+        console.log("checks1",timeSlot )
+         console.log("checks",orderCountPerTime[timeSlot] )
+        //  console.log("checks",orderCountPerTime[timeSlot] <= deliveryBoyCapacity )
+         if( orderCountPerTime[timeSlot]< deliveryBoyCapacity){
+             availableTimesSlots.push(timeSlot)
+            
+         } 
      })
 
-
+//    console.log("befoore", orderCountPerTime);
+//    console.log("befoore2", availableTimesSlots);
+    
 
 
   return availableTimesSlots;
 }
 
-export {CalculateAvailableDates}
+export {calculateAvailableDates}

@@ -7,7 +7,7 @@ import React, {useEffect, useState} from 'react';
 
 
 
-export default function TimeSelector() {
+export default function TimeSelector({availableTimeSlots}:{availableTimeSlots:string[]}) {
 
     const d = new Date();
      const month= d.getMonth() +1;
@@ -32,11 +32,14 @@ export default function TimeSelector() {
     return (
         <div  data-test-id='' className='date-selector-container' >
              <label>Select a delivery Time:
-       <select onChange={e=>SelectedTime(e.target.value) } 
- >
-    <option value="Orange">Orange</option>
-    <option value="Radish">Radish</option>
-    <option value="Cherry">Cherry</option>
+       
+       <select onChange={e=>SelectedTime(e.target.value) } >
+           {availableTimeSlots.map((slot, index)=>{
+               return (
+                <option key={index} value={`${slot}`}>{slot}</option>
+               )
+           })}
+    
   </select>
   
     </label>
