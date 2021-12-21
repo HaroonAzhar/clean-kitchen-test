@@ -1,4 +1,4 @@
-import { Order } from './../components/product_listing/src/types';
+import { Order } from './types';
 function GetAllOrders():Promise< Order[]> {
     
     return new Promise(resolve => {
