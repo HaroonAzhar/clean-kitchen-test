@@ -17,6 +17,7 @@ export default function DateSelector({onDateChange}:{onDateChange:(date:Date)=>v
     const [state, setState] = useState<IDate>({day:day,month:month,year:year })
     // const [state, setState] = useState<IDate>({day:day,month:month,year:year })
     const handleDayChange = (value:number) =>{
+      console.log("vallue", value)
        setState({...state, day: value})
        onDateChange(new Date(`${state.year}-${state.month}-${state.day}`))
       //  console.log("state sett dayr", state)

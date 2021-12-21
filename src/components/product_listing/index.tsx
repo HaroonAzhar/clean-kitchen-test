@@ -4,8 +4,7 @@ import DateSelector from '../date_selector'
 import TimeSelector from '../time_slector'
 import { GetAllOrders } from "../../utils/api_requests";
 import {calculateAvailableDates} from "./src/helpers/delivery_helpers"
-import { Order, ProductListingState } from './src/types';
-import { stat } from 'fs';
+import { Order } from './src/types';
 
 export default function ProductListng() {
     // const [selectedDate, setSelectedDate] = useState(Date())
@@ -26,7 +25,7 @@ export default function ProductListng() {
         orders.then(orders => {
             // setUser(data.user);
             // setPosts(data.posts);
-            console.log("orders =",orders)
+            // console.log("orders =",orders)
 
             // setState({...state, orders:orders})
             setOrders(orders)

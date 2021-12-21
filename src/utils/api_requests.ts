@@ -40,7 +40,20 @@ function GetAllOrders():Promise< Order[]> {
               "time": "12:30",
               "orderId": "423",
               "customerId": "a-411"
-            }
+            },
+            {
+              "date": "2021-12-2",
+              "time": "16:30",
+              "orderId": "323",
+              "customerId": "a-211"
+            },
+            {
+              "date": "2021-12-2",
+              "time": "16:30",
+              "orderId": "423",
+              "customerId": "a-411"
+            },
+            
           ]
           );
       }, 1000);
