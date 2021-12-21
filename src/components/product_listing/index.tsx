@@ -4,7 +4,7 @@ import DateSelector from '../date_selector'
 import TimeSelector from '../time_slector'
 import { GetAllOrders } from "../../utils/api_requests";
 import {calculateAvailableDates} from "./src/helpers/delivery_helpers"
-import { Order } from './src/types';
+import { Order } from '../../utils/types';
 
 export default function ProductListng() {
      const[selectedDate,setSelectedDate] = useState<Date>(new Date)

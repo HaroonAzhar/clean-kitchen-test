@@ -1,12 +1,13 @@
-import { Order, TimeSlotCountMap } from './../types';
+import {  TimeSlotCountMap } from './../types';
+import { Order} from './../../../../utils/types';
 import {DeliveryTimeSlots} from '../../../../utils/constants'
 
 function compareDateWithISOStringToBeEqual(date:Date, isoString:string): boolean {
     
 
-    const rES= `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+    const result= `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
 
-    return rES === isoString
+    return result === isoString
 
 }
 

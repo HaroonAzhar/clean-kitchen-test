@@ -5,7 +5,7 @@ import { IDate } from '../../utils/types';
 export default function DateSelector({onDateChange}:{onDateChange:(date:Date)=>void}) {
 
     const d = new Date();
-     const month= d.getMonth() +1;
+    const month= d.getMonth() +1;
     const day= d.getDate();
     const year =  d.getFullYear();
 	
