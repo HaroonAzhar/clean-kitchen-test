@@ -7,11 +7,6 @@ import {calculateAvailableDates} from "./src/helpers/delivery_helpers"
 import { Order } from './src/types';
 
 export default function ProductListng() {
-    // const [selectedDate, setSelectedDate] = useState(Date())
-    // const [state, setState] = useState<ProductListingState>({
-    //     selectedDate: new Date(),
-    //     availableTimeSlot: []
-    //  })
      const[selectedDate,setSelectedDate] = useState<Date>(new Date)
      const[availableTimeSlots,setAavailableTimeSlots] = useState<string[]>([])
      const [ orrders, setOrders ] = useState< Order[]>([]);
@@ -19,53 +14,17 @@ export default function ProductListng() {
     const orders = GetAllOrders() 
 
     useEffect(() => {
-
-        //initial render
-        //get orders
         orders.then(orders => {
-            // setUser(data.user);
-            // setPosts(data.posts);
-            // console.log("orders =",orders)
-
-            // setState({...state, orders:orders})
             setOrders(orders)
-
-            
-
-
           });
-          
-         
-        
-      
 
     }, []);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect( () => {
 
-        // console.log("about t set slots", state.orders )
-        // console.log("about t set slots 2", state.selectedDate)
-        // if(state.selectedDate){
-        //     orders.then( response => {
-
-        //         // return response.json();
-                
-        //  })
-        // }
-        const answers = calculateAvailableDates(orrders, selectedDate)
-                // setState({...state, availableTimeSlot: answers})
-                setAavailableTimeSlots(answers)
-        
-        // if(state.orders && state.selectedDate){
-        //     // console.log("about t set slots")
-        //     let answers = await 
-           
-        // // console.log("answers", answers)
-        // setState({...state, availableTimeSlot: answers})
-        // }
-        
-        
+          const answers = calculateAvailableDates(orrders, selectedDate)
+          setAavailableTimeSlots(answers)
        
     }, [selectedDate, orrders]);
 
