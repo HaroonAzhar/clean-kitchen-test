@@ -41,18 +41,24 @@ export default function DateSelector({onDateChange}:{onDateChange:(date:Date)=>v
            <label>Enter delivery date:
         <input
           type="number" 
+          name='day'
           value={state.day}
           onChange={(e) => handleDayChange(parseInt(e.target.value))}
+          data-testid="ds-day-input"
         />
         <input
           type="number" 
+          name='month'
           value={state.month}
           onChange={(e) => handleMonthChange(parseInt(e.target.value))}
+          data-testid='ds-month-input'
         />
         <input
           type="number" 
+          name='year'
           value={state.year}
           onChange={(e) => handleYearChange(parseInt(e.target.value))}
+          data-testid='ds-year-input'
         />
       </label> 
             
