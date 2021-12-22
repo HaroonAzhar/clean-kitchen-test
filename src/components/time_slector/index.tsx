@@ -13,18 +13,20 @@ export default function TimeSelector({availableTimeSlots}:{availableTimeSlots:st
       const month= d.getMonth() +1;
       const day= d.getDate();
       const year =  d.getFullYear();
-      const SelectedTime = (value:string)=>{
-        console.log(value)
+      const selectedTime = (value:any)=>{
+        console.log("wwwww",value)
+        console.log("wwwww2",value.value)
     }
 
     return (
-        <div  data-test-id='' className='date-selector-container' >
+        <div  data-testid='' className='date-selector-container' >
              <label>Select a delivery Time:
        
-       <select onChange={e=>SelectedTime(e.target.value) } >
+       <select data-testid='ts-select' onChange={e=>selectedTime(e.target) } >
            {availableTimeSlots.map((slot, index)=>{
                return (
-                <option key={index} value={`${slot}`}>{slot}</option>
+                <option data-testid='ts-option'   key={index} value={`${slot}`}>{slot}</option>
+                // {onClick={(e)=>console.log("AYYYYYY", e)}} onClick={(e)=>selectedTime(e.target)}
                )
            })}
     
