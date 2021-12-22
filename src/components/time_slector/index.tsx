@@ -7,26 +7,25 @@ import React, {useEffect, useState} from 'react';
 
 
 
-export default function TimeSelector({availableTimeSlots}:{availableTimeSlots:string[]}) {
+export default function TimeSelector({availableTimeSlots, onSlotSelection}:{availableTimeSlots:string[], onSlotSelection: (value:string)=>void}) {
 
       const d = new Date();
       const month= d.getMonth() +1;
       const day= d.getDate();
       const year =  d.getFullYear();
-      const selectedTime = (value:any)=>{
-        console.log("wwwww",value)
-        console.log("wwwww2",value.value)
+      const selectedTime = (value:string)=>{
+       // set the state 
+       onSlotSelection(value)
     }
 
     return (
         <div  data-testid='' className='date-selector-container' >
              <label>Select a delivery Time:
        
-       <select data-testid='ts-select' onChange={e=>selectedTime(e.target) } >
+       <select data-testid='ts-select' onChange={e=>selectedTime(e.target.value) } >
            {availableTimeSlots.map((slot, index)=>{
                return (
                 <option data-testid='ts-option'   key={index} value={`${slot}`}>{slot}</option>
-                // {onClick={(e)=>console.log("AYYYYYY", e)}} onClick={(e)=>selectedTime(e.target)}
                )
            })}
     

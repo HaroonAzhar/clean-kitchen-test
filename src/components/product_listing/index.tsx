@@ -8,6 +8,7 @@ import { Order } from '../../utils/types';
 
 export default function ProductListng() {
      const[selectedDate,setSelectedDate] = useState<Date>(new Date)
+     const[selectedTimeSlot,setSelectedTimeSlot] = useState<string>('')
      const[availableTimeSlots,setAavailableTimeSlots] = useState<string[]>([])
      const [ orrders, setOrders ] = useState< Order[]>([]);
   
@@ -39,7 +40,7 @@ export default function ProductListng() {
             <DateSelector onDateChange={(e)=>{setSelectedDate(e)}}  />
             <h1>{`${selectedDate}`}</h1>
 
-            <TimeSelector availableTimeSlots={availableTimeSlots} />
+            <TimeSelector availableTimeSlots={availableTimeSlots} onSlotSelection={(e)=>{setSelectedTimeSlot(e)}} />
 
            
         </div>  
