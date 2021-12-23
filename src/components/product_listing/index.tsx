@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-// import styles from './styles.module.css';
+import  './styles/index.css';
 import DateSelector from '../date_selector'
 import TimeSelector from '../time_slector'
 import { GetAllOrders } from "../../utils/api_requests";
@@ -32,7 +32,7 @@ export default function ProductListng() {
 
 
     return (
-        <div  data-test-id='' className='product-listing-container' >
+        <div  className='product-listing-container' >
             <h2> Very Cool Prroducct </h2>
 
             <img src={"https://picsum.photos/seed/phone/500/500"}></img>

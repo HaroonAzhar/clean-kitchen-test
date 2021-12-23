@@ -1,0 +1,43 @@
+/*  Groups styles */
+.date-selector-container{
+    --picker-background: #ccdbe8;
+    background-color: var(--picker-background) ;
+    padding: 2px;
+    
+    display: flex;
+}
+span{
+    font-weight: bold;
+    opacity: 0.8;
+}
+/* ------inputs styles----- */
+.ds-inputs-container{
+    border: solid 2px #b7c1c9; 
+    border-radius: 10px;
+    padding: 2px;
+}
+input{
+  border-style: hidden;
+  background-color: var(--picker-background);
+}
+input.focus-visible{
+    outline-width: 0;
+    background-color: var(--picker-background);
+  }
+ /* hide arrow buttons on inputs  */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+/* --!!!----- hide arrow buttons on inputs end--------!!!  */
+/* --!!!-----input styles end------!!! */
+
+
+
+/* Individual elements styles */

@@ -1,0 +1,7 @@
+@import '../../../styles/colors.css';
+.product-listing-container{
+    background-color: var(--secondary-color);
+    margin: 5px;
+    border-radius: 10px;
+    padding: 5px;
+}

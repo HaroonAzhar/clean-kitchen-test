@@ -2,11 +2,6 @@ import React, {useEffect, useState} from 'react';
 // import styles from './styles.module.css';
 
 
-
-
-
-
-
 export default function TimeSelector({availableTimeSlots, onSlotSelection}:{availableTimeSlots:string[], onSlotSelection: (value:string)=>void}) {
 
       const d = new Date();

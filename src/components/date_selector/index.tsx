@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-// import styles from './styles.module.css';
+import  './styles/index.css'
 import { IDate } from '../../utils/types';
 
 export default function DateSelector({onDateChange}:{onDateChange:(date:Date)=>void}) {
@@ -38,30 +38,32 @@ export default function DateSelector({onDateChange}:{onDateChange:(date:Date)=>v
 
     return (
         <div  data-test-id='' className='date-selector-container' >
-           <label>Enter delivery date:
-        <input
-          type="number" 
-          name='day'
-          value={state.day}
-          onChange={(e) => handleDayChange(parseInt(e.target.value))}
-          data-testid="ds-day-input"
-        />
-        <input
-          type="number" 
-          name='month'
-          value={state.month}
-          onChange={(e) => handleMonthChange(parseInt(e.target.value))}
-          data-testid='ds-month-input'
-        />
-        <input
-          type="number" 
-          name='year'
-          value={state.year}
-          onChange={(e) => handleYearChange(parseInt(e.target.value))}
-          data-testid='ds-year-input'
-        />
-      </label> 
+           <label>Enter delivery date:</label> 
+           <div className='ds-inputs-container'>
+           <input
+             type="number" 
+              name='day'
+              value={state.day}
+              onChange={(e) => handleDayChange(parseInt(e.target.value))}
+              data-testid="ds-day-input"
+           /><span>/</span>
+            <input
+              type="number" 
+              name='month'
+              value={state.month}
+              onChange={(e) => handleMonthChange(parseInt(e.target.value))}
+              data-testid='ds-month-input'
+           /><span>/</span>
+           <input
+              type="number" 
+              name='year'
+              value={state.year}
+              onChange={(e) => handleYearChange(parseInt(e.target.value))}
+              data-testid='ds-year-input'
+            /> 
             
+           </div>
+      
            
         </div>
     );
