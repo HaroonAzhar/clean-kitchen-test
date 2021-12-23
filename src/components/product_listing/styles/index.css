@@ -1,7 +1,31 @@
+
 @import '../../../styles/colors.css';
-.product-listing-container{
+/*  Groups styles */
+.pl-container{
     background-color: var(--secondary-color);
     margin: 5px;
     border-radius: 10px;
     padding: 5px;
 }
+img{
+    border: solid 4px var(--smoky-edge);
+    border-radius: 5px;
+}
+/*  product listing date selector styles- edit these styles tto place/shape the date selector component inside product listing  component */
+.pl-ds-container{
+    justify-content: center;
+    display: flex;
+    margin: 5px;
+}
+/*  product listing ime selector styles- edit these styles tto place/shape the time selector component inside product listing  component */
+.pl-ts-container{
+    justify-content: center;
+    display: flex;
+    margin: 5px;
+}
+
+
+
+/* Individual elements styles */
+
+/*  --------!!! Individual elements styles---------------------!!! */

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-// import styles from './styles.module.css';
+import './styles/index.css';
 
 
 export default function TimeSelector({availableTimeSlots, onSlotSelection}:{availableTimeSlots:string[], onSlotSelection: (value:string)=>void}) {

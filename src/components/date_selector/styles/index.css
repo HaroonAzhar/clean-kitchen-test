@@ -1,8 +1,9 @@
 /*  Groups styles */
 .date-selector-container{
     --picker-background: #ccdbe8;
-    background-color: var(--picker-background) ;
+    background-color: var(--secondary-color) ;
     padding: 2px;
+    align-items: center;
     
     display: flex;
 }
@@ -10,21 +11,26 @@ span{
     font-weight: bold;
     opacity: 0.8;
 }
+label{
+    font-weight: 700;
+}
 /* ------inputs styles----- */
 .ds-inputs-container{
-    border: solid 2px #b7c1c9; 
+    border: solid 2px var(--smoky-edge); 
     border-radius: 10px;
     padding: 2px;
 }
 input{
   border-style: hidden;
-  background-color: var(--picker-background);
+  background-color: var(--secondary-color);
+  max-width: 35px;
+  padding-left: 5px;
 }
 input.focus-visible{
     outline-width: 0;
-    background-color: var(--picker-background);
   }
- /* hide arrow buttons on inputs  */
+
+/* hide arrow buttons on inputs  */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -35,9 +41,12 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-/* --!!!----- hide arrow buttons on inputs end--------!!!  */
-/* --!!!-----input styles end------!!! */
+/* --!!!--------- hide arrow buttons on inputs end--------!!!  */
+/* --!!!---------------input styles end-----------------!!! */
+/*  ----------------!!!Groups styles end ---------------------!!! */
 
 
 
 /* Individual elements styles */
+
+/*  --------!!! Individual elements styles---------------------!!! */

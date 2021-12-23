@@ -32,16 +32,17 @@ export default function ProductListng() {
 
 
     return (
-        <div  className='product-listing-container' >
+        <div  className='pl-container' >
             <h2> Very Cool Prroducct </h2>
-
+          
             <img src={"https://picsum.photos/seed/phone/500/500"}></img>
-
+            <div className='pl-ds-container'>
             <DateSelector onDateChange={(e)=>{setSelectedDate(e)}}  />
-            <h1>{`${selectedDate}`}</h1>
-
-            <TimeSelector availableTimeSlots={availableTimeSlots} onSlotSelection={(e)=>{setSelectedTimeSlot(e)}} />
-
+            </div>
+            <div className='pl-ts-container'>
+            <TimeSelector  availableTimeSlots={availableTimeSlots} onSlotSelection={(e)=>{setSelectedTimeSlot(e)}} />
+            </div>
+            
            
         </div>  
     );

@@ -1,0 +1,21 @@
+@import '../../../styles/colors.css';
+label{
+    font-weight: 700;
+}
+ option {
+    border-style: hidden;
+    background-color: var(--secondary-color);
+    max-width: 75px;
+    padding-left: 5px;
+  }
+  select{
+    border: solid 2px var(--smoky-edge); 
+    border-radius: 10px;
+    padding: 2px;
+    background-color: var(--secondary-color);
+    max-width: 75px;
+    padding-left: 5px;
+  }
+  select:focus{
+    outline-width: 0;
+  }
