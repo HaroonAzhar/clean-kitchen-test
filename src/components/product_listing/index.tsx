@@ -33,7 +33,7 @@ export default function ProductListng() {
 
     return (
         <div  className='pl-container' >
-            <h2> Very Cool Prroducct </h2>
+            <h2> Very Cool Prroduct </h2>
           
             <img src={"https://picsum.photos/seed/phone/500/500"}></img>
             <div className='pl-ds-container'>
